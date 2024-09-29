@@ -1,22 +1,25 @@
 const productsContainer = document.querySelector('[data-list="ProductsData"]');
 const productsHtml = Products.map(({ img, Title, Rate, Price }) => `
-    <div data-role="card-container">
-        <img src="${img}" alt="${Title}" style="width: 100px; height: auto; padding-inline-end: 20px">
-        <div data-role="Product-details-container">
-            <h3>${Title}<br></h3> 
-            <p><span class="stars">${generateStars(Rate)}</span><br></p>   
-            <p><strong>${Price}</strong></p>   
-        </div>
+  <div data-role="card-container" class="d-flex align-items-center mb-3">
+    <div class="me-3" style="margin-inline-end:20px"> 
+        <img src="${img}" alt="${Title}" class="img-fluid" style="width: 110px; height: auto;">
     </div>
+    <div data-role="Product-details-container">
+        <h5>${Title}</h5> 
+        <p><span class="stars">${generateStars(Rate)}</span></p>   
+        <p><strong>${Price}</strong></p>   
+    </div>
+</div>
+
 `).join('');
 
 const ReviewsContainer = document.querySelector('[data-list="ReviewsData"]');
 const ReviewsHtml = Reviews.map(({ img, Title, Rate, Price, Description }) => `
     <div data-role="product-container" style="display: flex; align-items: center; margin-bottom: 20px;">
-        <img src="${img}" alt="${Title}" style="width: 70px; height: 70px; border-radius: 100%; object-fit: fill">
+        <img src="${img}" alt="${Title}" style="width: 90px; height: 90px; border-radius: 100%; object-fit: fill">
         <div data-role="product-info">
-            <div data-role="Product-details-container">
-                <h3>${Title}<br></h3>
+            <div data-role="Product-details-container" style="min-width:250px">
+                <h5>${Title}<br></h5>
                 <p><span class="stars">${generateStars(Rate)}</span><br></p>   
                 <p><strong>${Price}</strong></p>   
             </div>
